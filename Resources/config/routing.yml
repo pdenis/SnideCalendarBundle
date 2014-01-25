@@ -1,0 +1,30 @@
+snide_calendar_event:
+    pattern:   /calendar
+    defaults:  { _controller: SnideCalendarBundle:Event:index }
+    
+snide_calendar_event_new:
+    pattern:   /event/new
+    defaults:  { _controller: SnideCalendarBundle:Event:new }
+
+snide_calendar_event_create:
+    pattern:   /event/create
+    defaults:  { _controller: SnideCalendarBundle:Event:create }
+    requirements:
+        _method:  POST
+
+snide_calendar_event_edit:
+    pattern:   /event/edit/{id}
+    defaults:  { _controller: SnideCalendarBundle:Event:edit }
+
+snide_calendar_event_show:
+    pattern:   /event/show/{id}
+    defaults:  { _controller: SnideCalendarBundle:Event:show }
+
+snide_calendar_event_update:
+    pattern:   /event/update
+    defaults:  { _controller: SnideCalendarBundle:Event:update }
+    requirements:
+        _method:  POST
+snide_calendar_event_delete:
+    pattern:   /event/delete/{id}
+    defaults:  { _controller: SnideCalendarBundle:Event:delete }
