@@ -16,28 +16,28 @@ interface EventManagerInterface
      *
      * @param Event $event
      */
-    public function create(Event $event);
+    public function createEvent(Event $event);
 
     /**
      * Delete an repo
      *
      * @param Event $event
      */
-    public function delete(Event $event);
+    public function deleteEvent(Event $event);
 
     /**
      * Update an repo
      *
      * @param Event $event
      */
-    public function update(Event $event);
+    public function updateEvent(Event $event);
 
     /**
      * Create an repo instance
      *
      * @return Event
      */
-    public function createNew();
+    public function createNewEvent();
 
     /**
      * Find an repo
@@ -45,12 +45,21 @@ interface EventManagerInterface
      * @param string $id repo ID
      * @return Event
      */
-    public function find($id);
+    public function findEvent($id);
 
     /**
      * Find all repos
      *
      * @return array
      */
-    public function findAll();
+    public function findEvents();
+
+    /**
+     * Find events between two dates
+     *
+     * @param \DateTime $start
+     * @param \DateTime $end
+     * @return mixed
+     */
+    public function findEventsBetween(\DateTime $start, \DateTime $end);
 }

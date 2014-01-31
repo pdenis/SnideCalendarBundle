@@ -1,0 +1,11 @@
+ <form action="{{ path('snide_calendar_upload') }}" method="post" {{ form_enctype(form) }}>
+     <div>
+         {{ form_errors(form) }}
+     </div>
+     <div>
+         {{ form_label(form.task) }}
+         {{ form_errors(form.task) }}
+         {{ form_widget(form.task) }}
+     </div>
+     <input type="submit" value="Submit" />
+</form>

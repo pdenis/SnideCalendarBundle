@@ -35,6 +35,9 @@ class SnideCalendarExtension extends Extension
         $loader->load('model.xml');
         $loader->load('form.xml');
         $loader->load('manager.xml');
+        $loader->load('transformer.xml');
+        $loader->load('loader.xml');
+        $loader->load('generator.xml');
 
         $this->loadRepository($loader, $container, $config);
     }

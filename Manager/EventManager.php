@@ -37,7 +37,7 @@ class EventManager implements EventManagerInterface
      *
      * @param Event $event
      */
-    public function create(Event $event)
+    public function createEvent(Event $event)
     {
         $this->repository->create($event);
     }
@@ -47,7 +47,7 @@ class EventManager implements EventManagerInterface
      *
      * @param Event $event
      */
-    public function delete(Event $event)
+    public function deleteEvent(Event $event)
     {
         $this->repository->delete($event);
     }
@@ -57,7 +57,7 @@ class EventManager implements EventManagerInterface
      *
      * @param Event $event
      */
-    public function update(Event $event)
+    public function updateEvent(Event $event)
     {
         $this->repository->update($event);
     }
@@ -67,7 +67,7 @@ class EventManager implements EventManagerInterface
      *
      * @return Event
      */
-    public function createNew()
+    public function createNewEvent()
     {
         $class = $this->class;
 
@@ -80,7 +80,7 @@ class EventManager implements EventManagerInterface
      * @param string $id repo ID
      * @return Event
      */
-    public function find($id)
+    public function findEvent($id)
     {
         return $this->repository->find($id);
     }
@@ -90,8 +90,20 @@ class EventManager implements EventManagerInterface
      *
      * @return array
      */
-    public function findAll()
+    public function findEvents()
     {
         return $this->repository->findAll();
+    }
+
+    /**
+     * Find events between two dates
+     *
+     * @param \DateTime $start
+     * @param \DateTime $end
+     * @return mixed
+     */
+    public function findEventsBetween(\DateTime $start, \DateTime $end)
+    {
+        return $this->repository->findBetween($start, $end);
     }
 }

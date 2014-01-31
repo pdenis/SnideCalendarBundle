@@ -16,7 +16,9 @@
     },
     "require": {
         "php": ">=5.3.3",
-        "sami/sami": "v1.3"
+        "doctrine/orm": "2.3.*",
+        "doctrine/doctrine-bundle": "1.2.*",
+        "doctrine/common": "2.3.*"
     },
     "autoload": {
         "psr-0": {

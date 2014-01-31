@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="snide_calendar.event_manager.class">Snide\Bundle\CalendarBundle\Manager\EventManager</parameter>
+    </parameters>
+
+    <services>
+        <service id="snide_calendar.event_manager" class="%snide_calendar.event_manager.class%" public="true">
+            <argument type="service" id="snide_calendar.event_repository"/>
+            <argument>%snide_calendar.model.event.class%</argument>
+        </service>
+    </services>
+</container>

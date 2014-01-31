@@ -1,17 +1,20 @@
 <?php
 
-namespace Snide\Bundle\CalendarBundle\Event\Doctrine\Orm;
+namespace Snide\Bundle\CalendarBundle\Repository\Doctrine\Orm;
 
+use Doctrine\Common\Collections\Criteria;
+use Doctrine\DBAL\Query\QueryBuilder;
 use Doctrine\ORM\EntityRepository;
 use Snide\Bundle\CalendarBundle\Model\Event;
-use Snide\Bundle\CalendarBundle\Event\EventRepositoryInterface;
+use Snide\Bundle\CalendarBundle\Repository\EventRepositoryInterface;
+
 
 /**
  * Class EventEvent
  *
  * @author Pascal DENIS <pascal.denis@businessdecision.com>
  */
-class EventEvent extends EntityRepository implements EventRepositoryInterface
+class EventRepository extends EntityRepository implements EventRepositoryInterface
 {
 
     /**
@@ -74,5 +77,24 @@ class EventEvent extends EntityRepository implements EventRepositoryInterface
         $this->_em->flush($event);
 
         return $event;
+    }
+
+    /**
+     * Find events between two dates
+     *
+     * @param \DateTime $start
+     * @param \DateTime $end
+     * @return mixed
+     */
+    public function findBetween(\DateTime $start, \DateTime $end)
+    {
+        return $this->createQueryBuilder('e')
+            ->join('e.periods', 'p')
+            ->andWhere('p.startedAt >= :startedAt')
+            ->setParameter('startedAt', $start)
+            ->orWhere('p.endedAt <= :endedAt')
+            ->setParameter('endedAt', $end)
+            ->orderBy('p.startedAt')
+            ->getQuery()->getResult();
     }
 }

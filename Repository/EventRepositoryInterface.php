@@ -49,4 +49,13 @@ interface EventRepositoryInterface
      * @return mixed
      */
     public function update(Event $event);
+
+    /**
+     * Find events between two dates
+     *
+     * @param \DateTime $start
+     * @param \DateTime $end
+     * @return mixed
+     */
+    public function findBetween(\DateTime $start, \DateTime $end);
 }

@@ -1,7 +1,15 @@
 snide_calendar_event:
-    pattern:   /calendar
+    pattern:   /events
     defaults:  { _controller: SnideCalendarBundle:Event:index }
-    
+
+snide_calendar_download:
+    pattern:   /download
+    defaults:  { _controller: SnideCalendarBundle:Event:download }
+
+snide_calendar_upload:
+    pattern:   /upload
+    defaults:  { _controller: SnideCalendarBundle:Event:upload }
+
 snide_calendar_event_new:
     pattern:   /event/new
     defaults:  { _controller: SnideCalendarBundle:Event:new }

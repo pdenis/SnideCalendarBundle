@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="snide_calendar.ics_to_event_transformer.class">Snide\Bundle\CalendarBundle\Transformer\ICSToEventTransformer</parameter>
+        <parameter key="snide_calendar.event_to_ics_transformer.class">Snide\Bundle\CalendarBundle\Transformer\EventToICSTransformer</parameter>
+    </parameters>
+
+    <services>
+        <service id="snide_calendar.ics_to_event_transformer" class="%snide_calendar.ics_to_event_transformer.class%" public="true" />
+        <service id="snide_calendar.event_to_ics_transformer" class="%snide_calendar.event_to_ics_transformer.class%" public="true" />
+    </services>
+</container>

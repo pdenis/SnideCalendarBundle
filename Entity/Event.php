@@ -3,9 +3,14 @@
 namespace Snide\Bundle\CalendarBundle\Entity;
 
 use Snide\Bundle\CalendarBundle\Model\Event as BaseEvent;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Class Event
+ *
+ * @ORM\Entity
+ * @ORM\Table(name="event")
+ * @ORM\Entity(repositoryClass="Snide\Bundle\CalendarBundle\Repository\Doctrine\Orm\EventRepository")
  *
  * @author Pascal DENIS <pascal.denis@businessdecision.com>
  */
@@ -38,19 +43,11 @@ class Event extends BaseEvent
      */
     protected $description;
     /**
-     * Event start date
+     * List of periods
      *
-     * @var \DateTime
+     * @var array
      *
-     * @ORM\Column(type="datetime")
+     * @ORM\OneToMany(targetEntity="Period", mappedBy="event", cascade={"all"})
      */
-    protected $startedAt;
-    /**
-     * Event end date
-     *
-     * @var \DateTime
-     *
-     * @ORM\Column(type="datetime")
-     */
-    protected $endedAt;
+    protected $periods;
 }
